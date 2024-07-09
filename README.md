@@ -1,9 +1,10 @@
-![Shell Script](https://img.shields.io/badge/Shell_Script-4EAA25?logo=gnubash&logoColor=fff&style=flat)
+
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=fff)
 ![POSIX.1%2D2017](https://img.shields.io/badge/POSIX.1&#8209;2017-00629B?logo=ieee&logoColor=fff&style=flat)
+![Shell Script](https://img.shields.io/badge/Shell_Script-4EAA25?logo=gnubash&logoColor=fff&style=flat)
 ![Fish Shell](https://img.shields.io/badge/fish%20shell-34C534?logo=fishshell&logoColor=fff&style=flat)
 
-# `apputils` - find macOS app paths!
+## `apputils` - Find macOS app paths! 🚀
 
 [`apputils`] is a collection of shell functions to find application bundle
 paths.
