@@ -51,7 +51,7 @@ $ ./install.sh
 
 The following options are available:
 ```sh
-usage: apputil command [options] <app>
+usage: app command [options] <app>
 
 Options:
     -i  Perform case-insensitive matching
@@ -74,17 +74,17 @@ appdir   List application parent directory.
 
 _List all installed application bundles_:
 ```sh
-$ apputil list
+$ app list
 ```
 
 _Find the path of the application bundle, case-insensitive_:
 ```sh
-$ apputil find -i 'Docker'
+$ app find -i 'Docker'
 ```
 
 _Retrieve the directory containing the application bundle_:
 ```sh
-$ apputil dir 'Docker'
+$ app dir 'Docker'
 ```
 
 _Call the former commands as functions in your shell profile_:
