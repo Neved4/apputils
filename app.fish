@@ -27,20 +27,14 @@ function appfind
 end
 
 function appdir
-	set -l icase
-	set -l app_name
-	set -l path
+	set path (appfind $argv)
 
-	if test "$argv[1]" = "-i"
-		set icase '-i'
-		set -e argv[1]
-	end
+	for i in $path
+		set dirname (dirname $i)
 
-	set app_name $argv[1]
-	set path (appfind $icase $app_name)
-
-	if test -n "$path"
-		printf '%s\n' (dirname $path)
+		if test -e $i
+			echo $dirname
+		end
 	end
 end
 
