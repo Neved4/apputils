@@ -12,6 +12,7 @@ appfind() {
 appdir() {
 	path=$(appfind "$@")
 
+	IFS=$(printf '\n+')
 	for i in $path
 	do
 		dirname=${i%/*}
