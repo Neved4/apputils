@@ -6,35 +6,18 @@ applist() {
 }
 
 appfind() {
-	icase=
-
-	case $1 in
-	-i) icase='-i' && shift 1
-	esac
-
-	app=${1:?}.app
-
-	applist | GREP_OPTIONS='' grep $icase "$app"
+	applist | GREP_OPTIONS='' grep "$@"
 }
 
 appdir() {
-	icase=
+	path=$(appfind "$@")
 
-	case $1 in
-	-i) icase='-i' && shift 1
-	esac
+	for i in $path
+	do
+		dirname=${i%/*}
 
-	app=${1:?}
-
-	case $icase in
-	-i) path=$(appfind $icase "$app") ;;
-	 *) path=$(appfind "$app")
-	esac
-
-	app=${1:?}
-	dirname=${path%/*}
-
-	[ -n "$path" ] && printf '%s\n' "$dirname"
+		[ -e "$i" ] && printf '%s\n' "$dirname"
+	done
 }
 
 case $- in
