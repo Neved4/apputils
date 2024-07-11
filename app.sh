@@ -8,9 +8,11 @@ applist() {
 appfind() {
 	icase=
 
-	[ "$1" = "-i" ] && icase="-i" && shift 1
+	case $1 in
+	-i) icase='-i' && shift 1
+	esac
 
-	app="${1:?}.app"
+	app=${1:?}.app
 
 	applist | GREP_OPTIONS='' grep $icase "$app"
 }
@@ -18,11 +20,19 @@ appfind() {
 appdir() {
 	icase=
 
-	[ "$1" = "-i" ] && icase="-i" && shift 1
+	case $1 in
+	-i) icase='-i' && shift 1
+	esac
 
-	app="${1:?}"
-	path=$(appfind "$icase" "$app")
-	dirname="${path%/*}"
+	app=${1:?}
+
+	case $icase in
+	-i) path=$(appfind $icase "$app") ;;
+	 *) path=$(appfind "$app")
+	esac
+
+	app=${1:?}
+	dirname=${path%/*}
 
 	[ -n "$path" ] && printf '%s\n' "$dirname"
 }
@@ -45,13 +55,13 @@ usage() {
 } >&2
 
 cmdparse() {
-    cmd="$1"
+    cmd=$1
 
     case $cmd in
     list|find|dir)
         shift 1 ;;
     *)
-        echo "Invalid command: $cmd"
+        printf '%s\n' "Invalid command: $cmd"
         usage
         exit 1
     esac
