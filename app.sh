@@ -21,7 +21,7 @@ appdir() {
 	[ "$1" = "-i" ] && icase="-i" && shift 1
 
 	app="${1:?}"
-	path=$(appfind "$app" "$icase")
+	path=$(appfind "$icase" "$app")
 	dirname="${path%/*}"
 
 	[ -n "$path" ] && printf '%s\n' "$dirname"
