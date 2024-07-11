@@ -1,5 +1,15 @@
 #!/usr/bin/env fish
 
+if test -n $OSTYPE && string match -q 'darwin*' $OSTYPE
+	true
+else
+	switch (uname -s)
+		case Darwin
+		case '*'
+			return 0
+	end
+end
+
 function applist
 	mdfind "kMDItemContentType == 'com.apple.application-bundle'"
 end

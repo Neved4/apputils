@@ -1,6 +1,16 @@
 #!/bin/sh
 set -Cefu
 
+# shellcheck disable=SC3028
+os=${OSTYPE:-$(uname -s)}
+
+case $os in
+'darwin'*)
+	;;
+*)
+	return 0
+esac
+
 applist() {
 	mdfind "kMDItemContentType == 'com.apple.application-bundle'"
 }
@@ -11,8 +21,8 @@ appfind() {
 
 appdir() {
 	path=$(appfind "$@")
-
 	IFS=$(printf '\n+')
+
 	for i in $path
 	do
 		dirname=${i%/*}
