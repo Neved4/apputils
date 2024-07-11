@@ -28,7 +28,7 @@ Before using [`apputils`], ensure you have:
 
 To directly source the scripts and use their functions in your environment:
 ```sh
-$ . /path/to/repo/apputil.sh
+$ . /path/to/repo/app.sh
 $ appdir 'Docker'
 ```
 
@@ -103,8 +103,8 @@ $ appdir 'Docker'
 
 ## Standards
 
-The [apputils.sh](apputils.sh) script is compatible with [ISO
-9945:2009][POSIX.1-2017], also known as [POSIX.1-2017].[^1]
+The [app.sh](app.sh) script is compatible with [ISO
+9945:2009][POSIX.1-2017], also known as [POSIX.1-2017].[^posix]
 
 ## License
 
@@ -112,9 +112,9 @@ The [apputils.sh](apputils.sh) script is compatible with [ISO
    
 See the [LICENSE](LICENSE) file for details.
 
-[^3]: _IEEE Std 1003.1-2017: Standard for Information Technology — Portable_
-      _Operating System Interface (POSIX®)_, ISO/IEC/IEEE 9945:2009/COR
-      2:2017. URL: https://pubs.opengroup.org/onlinepubs/9699919799/
+[^posix]: _IEEE Std 1003.1-2017: Standard for Information Technology — Portable_
+    _Operating System Interface (POSIX®)_, ISO/IEC/IEEE 9945:2009/COR
+    2:2017. URL: https://pubs.opengroup.org/onlinepubs/9699919799/
 
 [`apputils`]: https://github.com/Neved4/apputils
 [`bash`]: https://www.gnu.org/software/bash/
