@@ -14,7 +14,6 @@ function appfind
 	end
 
 	set app_name $argv[1]
-	set app_name (string join " " $app_name)
 
 	if not string match -qr '\.app$' -- $app_name
 		set app_name "$app_name.app"
