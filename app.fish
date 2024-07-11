@@ -5,25 +5,7 @@ function applist
 end
 
 function appfind
-	set -l icase
-	set -l app_name
-
-	if test "$argv[1]" = "-i"
-		set icase '-i'
-		set -e argv[1]
-	end
-
-	set app_name $argv[1]
-
-	if not string match -qr '\.app$' -- $app_name
-		set app_name "$app_name.app"
-	end
-
-	for item in (applist)
-		if string match -q $icase -- "*$app_name*" $item
-			printf '%s\n' $item
-		end
-	end
+	applist | grep $argv
 end
 
 function appdir
