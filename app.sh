@@ -42,8 +42,8 @@ usage() {
 	printf '%s\n' "Usage: $progname command [options] <app>" '' \
 		"Commands:" \
 		"  list   List all installed apps." \
-		"  find   List application full path." \
-		"  dir	  List application parent directory." '' \
+		"  find   List application full path." a\
+		"  dir    List application parent directory." '' \
 		"Options:" \
 		"  -i  Perform case-insensitive matching"
 } >&2
