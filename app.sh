@@ -40,25 +40,24 @@ usage() {
 	progname=${0##*/}
 
 	printf '%s\n' "Usage: $progname command [options] <app>" '' \
-    	"Commands:" \
-    	"  list   List all installed apps." \
-    	"  find   List application full path." \
-    	"  dir    List application parent directory." '' \
+		"Commands:" \
+		"  list   List all installed apps." \
+		"  find   List application full path." \
+		"  dir	  List application parent directory." '' \
 		"Options:" \
-    	"  -i  Perform case-insensitive matching"
+		"  -i  Perform case-insensitive matching"
 } >&2
 
 cmdparse() {
-    cmd=$1
+	cmd=$1
 
-    case $cmd in
-    list|find|dir)
-        shift 1 ;;
-    *)
-        printf '%s\n' "Invalid command: $cmd"
-        usage
-        exit 1
-    esac
+	case $cmd in
+	list|find|dir)
+		shift 1 ;;
+	*)
+		printf '%s\n' "Invalid command: $cmd" >&2
+		usage && exit 1
+	esac
 }
 
 optparse() {
@@ -67,12 +66,8 @@ optparse() {
 	while getopts i name
 	do
 		case $name in
-		i)
-			iflag='-i' ;;
-		?)
-			usage
-			exit 1
-			;;
+		i) iflag='-i' ;;
+		?) usage && exit 1
 		esac
 	done
 }
